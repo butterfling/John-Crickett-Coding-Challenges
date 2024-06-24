@@ -56,6 +56,5 @@ This project uses CMake and Ninja build systems. Follow the steps below to set u
 
 ### Demonstration in CLion IDE
 
-(https://github.com/butterfling/John-Crickett-Coding-Challenges/blob/8c5eef963c7523c6741b2110494b45f3c06ef2b6/thumb.png)
 (https://github.com/butterfling/John-Crickett-Coding-Challenges/blob/8c5eef963c7523c6741b2110494b45f3c06ef2b6/2024-06-24%2013-46-17.mkv)
 
