@@ -1,0 +1,225 @@
+        -:    0:Source:C:/Users/saahi/CLionProjects/commandLineTool/src/count.cpp
+        -:    0:Graph:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\count.cpp.gcno
+        -:    0:Data:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\count.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by saahi on 6/24/2024.
+        -:    3://
+        -:    4:#include "../include/count.h"
+        -:    5:#include "../include/dependencies.h"
+        -:    6:
+function _ZN5Count10countWordsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 62%
+        1:    7:int Count::countWords(const std::string &fileName) {
+        1:    8:    std::ifstream file(fileName);
+        1:    8-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:    9:    if(!file.is_open()){
+        1:    9-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    #####:   10:        throw FileError(fileName);
+    %%%%%:   10-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   10-block  1
+call    4 never executed
+    $$$$$:   10-block  2
+call    5 never executed
+        -:   11:    }
+        1:   12:    std::string word;
+        1:   12-block  0
+call    0 returned 1
+        1:   13:    int wordCount=0;
+    58165:   14:    while(file>>word){
+    58165:   14-block  0
+call    0 returned 58165
+branch  1 taken 58165 (fallthrough)
+branch  2 taken 0 (throw)
+    58165:   14-block  1
+call    3 returned 58165
+branch  4 taken 58165 (fallthrough)
+branch  5 taken 0 (throw)
+    58165:   14-block  2
+branch  6 taken 58164
+branch  7 taken 1 (fallthrough)
+    58164:   15:        wordCount++;
+    58164:   15-block  0
+        -:   16:    }
+        1:   17:    file.close();
+        1:   17-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   18:    return wordCount;
+        1:   18-block  0
+        1:   19:}
+        1:   19-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   19-block  1
+call    2 never executed
+    $$$$$:   19-block  2
+call    3 never executed
+        -:   20:
+        -:   21:
+function _ZN5Count10countLinesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   22:int Count::countLines(const std::string& filename) {
+    #####:   23:    std::ifstream file(filename);
+    %%%%%:   23-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   24:    if (!file.is_open()) {
+    %%%%%:   24-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   25:        throw FileError(filename);
+    %%%%%:   25-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   25-block  1
+call    4 never executed
+    $$$$$:   25-block  2
+call    5 never executed
+        -:   26:    }
+    #####:   27:    std::string line;
+    %%%%%:   27-block  0
+call    0 never executed
+    #####:   28:    int lineCount = 0;
+    #####:   29:    while (std::getline(file, line)) {
+    %%%%%:   29-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   29-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   29-block  2
+branch  6 never executed
+branch  7 never executed (fallthrough)
+    #####:   30:        ++lineCount;
+    %%%%%:   30-block  0
+        -:   31:    }
+    #####:   32:    file.close();
+    %%%%%:   32-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   33:    return lineCount;
+    %%%%%:   33-block  0
+    #####:   34:}
+    %%%%%:   34-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   34-block  1
+call    2 never executed
+    $$$$$:   34-block  2
+call    3 never executed
+        -:   35:
+function _ZN5Count15countCharectersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   36:int Count::countCharecters(const std::string& filename) {
+    #####:   37:    std::ifstream file(filename);
+    %%%%%:   37-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   38:    if (!file.is_open()) {
+    %%%%%:   38-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   39:        throw FileError(filename);
+    %%%%%:   39-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   39-block  1
+call    4 never executed
+    $$$$$:   39-block  2
+call    5 never executed
+        -:   40:    }
+        -:   41:
+        -:   42:    char ch;
+    #####:   43:    int charCount = 0;
+    #####:   44:    while (file.get(ch)) {
+    %%%%%:   44-block  0
+    %%%%%:   44-block  1
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   44-block  2
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   44-block  3
+branch  6 never executed
+branch  7 never executed (fallthrough)
+    #####:   45:        charCount++;
+    %%%%%:   45-block  0
+        -:   46:    }
+    #####:   47:    file.close();
+    %%%%%:   47-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   48:    return charCount;
+    %%%%%:   48-block  0
+    #####:   49:}
+    %%%%%:   49-block  0
+call    0 never executed
+    $$$$$:   49-block  1
+call    1 never executed
+        -:   50:
+function _ZN5Count10countBytesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   51:int Count::countBytes(const std::string& filename) {
+    #####:   52:    std::ifstream file(filename, std::ios::binary | std::ios::ate);
+    %%%%%:   52-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    #####:   53:    if (!file.is_open()) {
+    %%%%%:   53-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:   54:        throw FileError(filename);
+    %%%%%:   54-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   54-block  1
+call    4 never executed
+    $$$$$:   54-block  2
+call    5 never executed
+        -:   55:    }
+    #####:   56:    int byteCount = file.tellg();
+    %%%%%:   56-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   56-block  1
+call    3 never executed
+    $$$$$:   56-block  2
+    #####:   57:    file.close();
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   58:    return byteCount;
+    %%%%%:   58-block  0
+    #####:   59:}
+    %%%%%:   59-block  0
+call    0 never executed
+    $$$$$:   59-block  1
+call    1 never executed

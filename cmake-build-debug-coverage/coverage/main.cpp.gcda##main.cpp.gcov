@@ -1,0 +1,417 @@
+        -:    0:Source:C:/Users/saahi/CLionProjects/commandLineTool/src/main.cpp
+        -:    0:Graph:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\main.cpp.gcno
+        -:    0:Data:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "../include/dependencies.h"
+        -:    2:#include "../include/error.h"
+        -:    3:#include "../include/count.h"
+        -:    4:#include "../include/stats.h"
+        -:    5:
+        -:    6://TODO:
+        -:    7://1) Support basic functionalities:
+        -:    8://  a-> word count, line count, bytes, charecter count
+        -:    9:// find
+function _Z10printUsagev called 0 returned 0% blocks executed 0%
+    #####:   10:void printUsage() {
+    #####:   11:    std::cout << "Usage: cwctool -l <filename>  (line count)\n";
+    %%%%%:   11-block  0
+call    0 never executed
+    #####:   12:    std::cout << "       cwctool -w <filename>  (word count)\n";
+call    0 never executed
+    #####:   13:    std::cout << "       cwctool -c <filename>  (character count)\n";
+call    0 never executed
+    #####:   14:    std::cout << "       cwctool -b <filename>  (byte count)\n";
+call    0 never executed
+    #####:   15:    std::cout << "       cwctool -uw <filename> (unique word count)\n";
+call    0 never executed
+    #####:   16:    std::cout << "       cwctool -aw <filename> (average word length)\n";
+call    0 never executed
+    #####:   17:    std::cout << "       cwctool -sc <filename> <char> (specific character count)\n";
+call    0 never executed
+    #####:   18:}
+        -:   19:
+function main called 1 returned 100% blocks executed 37%
+        1:   20:int main(int argc, char* argv[]) {
+        1:   21:    if (argc < 3) {
+        1:   21-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   22:        printUsage();
+    %%%%%:   22-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   23:        return 1;
+    %%%%%:   23-block  0
+        -:   24:    }
+        2:   25:    std::string flag = argv[1];
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:   25-block  1
+        1:   26:    std::string filename = argv[2];
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:   26-block  1
+       1*:   27:    char specificChar = argc == 4 ? argv[3][0] : '\0';
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   27-block  0
+        1:   27-block  1
+        -:   28:
+        -:   29:    std::unordered_map<std::string, std::function<int(const std::string&)>> handlers = {
+        -:   30:            {"-l", Count::countLines},
+        -:   31:            {"-w", Count::countWords},
+        -:   32:            {"-c", Count::countCharecters},
+        -:   33:            {"-b", Count::countBytes},
+        -:   34:            {"-uw", Stats::uniqueWordCount},
+function _ZZ4mainENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES6_ called 0 returned 0% blocks executed 0%
+       1*:   35:            {"-aw", [filename](const std::string&) -> int {
+        1:   35-block  0
+call    0 returned 1
+    $$$$$:   35-block  1
+call    1 never executed
+    $$$$$:   35-block  2
+    #####:   36:                double avgLength = Stats::averageWordLength(filename);
+    %%%%%:   36-block  0
+call    0 never executed
+    #####:   37:                if (avgLength >= 0) {
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   38:                    std::cout << "Average word length: " << avgLength << "\n";
+    %%%%%:   38-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   39:                    return 0;
+        -:   40:                }
+    #####:   41:                return -1;
+    %%%%%:   41-block  0
+        -:   42:            }}
+        8:   43:    };
+        1:   43-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        7:   43-block  1
+branch  3 taken 6 (fallthrough)
+branch  4 taken 1
+        6:   43-block  2
+call    5 returned 6
+    $$$$$:   43-block  3
+    $$$$$:   43-block  4
+    $$$$$:   43-block  5
+    $$$$$:   43-block  6
+    $$$$$:   43-block  7
+branch  6 never executed (fallthrough)
+branch  7 never executed
+    $$$$$:   43-block  8
+call    8 never executed
+    $$$$$:   43-block  9
+        -:   44:
+        -:   45:    try {
+       1*:   46:        if (flag == "-sc" && specificChar != '\0') {
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   46-block  0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   46-block  1
+branch  5 never executed (fallthrough)
+branch  6 never executed
+    %%%%%:   46-block  2
+        1:   46-block  3
+        1:   46-block  4
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    #####:   47:            int result = Stats::specificCharacterCount(filename, specificChar);
+    %%%%%:   47-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   48:            if (result >= 0) {
+    %%%%%:   48-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   49:                std::cout << "Number of '" << specificChar << "' characters: " << result << "\n";
+    %%%%%:   49-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   49-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   49-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   49-block  3
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   49-block  4
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+        -:   50:            }
+        -:   51:        } else {
+        1:   52:            auto it = handlers.find(flag);
+        1:   52-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   53:            if (it != handlers.end()) {
+        1:   53-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   54:                int result = it->second(filename);
+        1:   54-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   55:                if (result >= 0) {
+        1:   55-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   56:                    if (flag == "-l") {
+        1:   56-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   56-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    #####:   57:                        std::cout << "Number of lines: " << result << "\n";
+    %%%%%:   57-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   57-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   57-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+        1:   58:                    } else if (flag == "-w") {
+        1:   58-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   58-block  1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:   59:                        std::cout << "Number of words: " << result << "\n";
+        1:   59-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   59-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   59-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+    #####:   60:                    } else if (flag == "-c") {
+    %%%%%:   60-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   60-block  1
+branch  3 never executed (fallthrough)
+branch  4 never executed
+    #####:   61:                        std::cout << "Number of characters: " << result << "\n";
+    %%%%%:   61-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   61-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   61-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    #####:   62:                    } else if (flag == "-b") {
+    %%%%%:   62-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   62-block  1
+branch  3 never executed (fallthrough)
+branch  4 never executed
+    #####:   63:                        std::cout << "Number of bytes: " << result << "\n";
+    %%%%%:   63-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   63-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   63-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+        -:   64:                    }
+    #####:   65:                    else if (flag == "-uw") {
+    %%%%%:   65-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   65-block  1
+branch  3 never executed (fallthrough)
+branch  4 never executed
+    #####:   66:                        std::cout << "Number of unique words: " << result << "\n";
+    %%%%%:   66-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    %%%%%:   66-block  1
+call    3 never executed
+branch  4 never executed (fallthrough)
+branch  5 never executed (throw)
+    %%%%%:   66-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+        -:   67:                    }
+        -:   68:                }
+        -:   69:            } else {
+    #####:   70:                printUsage();
+    %%%%%:   70-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    #####:   71:                return 1;
+    %%%%%:   71-block  0
+        -:   72:            }
+        -:   73:        }
+    =====:   74:    } catch (const FileError& e) {
+    $$$$$:   74-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   74-block  1
+call    4 never executed
+    =====:   75:        std::cerr << e.what() << std::endl;
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    $$$$$:   75-block  0
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    =====:   76:        return 1;
+    =====:   77:    } catch (const ArgumentError& e) {
+    $$$$$:   77-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    $$$$$:   77-block  1
+call    3 never executed
+    $$$$$:   77-block  2
+call    4 never executed
+    =====:   78:        std::cerr << e.what() << std::endl;
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    $$$$$:   78-block  0
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    =====:   79:        return 1;
+    =====:   80:    } catch (const std::exception& e) {
+    $$$$$:   80-block  0
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    $$$$$:   80-block  1
+call    3 never executed
+    $$$$$:   80-block  2
+call    4 never executed
+    =====:   81:        std::cerr << "An unexpected error occurred: " << e.what() << std::endl;
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed (throw)
+    $$$$$:   81-block  0
+call    3 never executed
+call    4 never executed
+branch  5 never executed (fallthrough)
+branch  6 never executed (throw)
+    $$$$$:   81-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    =====:   82:        return 1;
+    =====:   83:    }
+    $$$$$:   83-block  0
+call    0 never executed
+    $$$$$:   83-block  1
+call    1 never executed
+        1:   84:    return 0;
+        1:   84-block  0
+        2:   85:}
+        1:   85-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   85-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   85-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   85-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:   85-block  4
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        1:   85-block  5
+call   15 returned 1
+branch 16 taken 1 (fallthrough)
+branch 17 taken 0 (throw)
+        1:   85-block  6
+call   18 returned 1
+branch 19 taken 1 (fallthrough)
+branch 20 taken 0 (throw)
+        1:   85-block  7
+        1:   85-block  8
+call   21 returned 1
+call   22 returned 1
+call   23 returned 1
+    $$$$$:   85-block  9
+branch 24 never executed (fallthrough)
+branch 25 never executed
+    $$$$$:   85-block 10
+    $$$$$:   85-block 11
+branch 26 never executed (fallthrough)
+branch 27 never executed
+    $$$$$:   85-block 12
+call   28 never executed
+    $$$$$:   85-block 13
+call   29 never executed
+    $$$$$:   85-block 14
+call   30 never executed
+    $$$$$:   85-block 15
+call   31 never executed

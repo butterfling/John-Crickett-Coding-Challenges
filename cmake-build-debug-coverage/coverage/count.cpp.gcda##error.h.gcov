@@ -1,0 +1,47 @@
+        -:    0:Source:C:/Users/saahi/CLionProjects/commandLineTool/include/error.h
+        -:    0:Graph:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\count.cpp.gcno
+        -:    0:Data:C:\Users\saahi\CLionProjects\commandLineTool\cmake-build-debug-coverage\CMakeFiles\commandLineTool.dir\src\count.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by saahi on 6/24/2024.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef COMMANDLINETOOL_ERROR_H
+        -:    6:#define COMMANDLINETOOL_ERROR_H
+        -:    7:#include "dependencies.h"
+        -:    8:class FileError : public std::exception{
+        -:    9:private:
+        -:   10:    std::string message;
+        -:   11:public:
+function _ZN9FileErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   12:    explicit FileError(const std::string &fileName) :
+    #####:   13:        message("Error: Could not open file "+fileName){}
+    %%%%%:   13-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed (fallthrough)
+branch  3 never executed (throw)
+    %%%%%:   13-block  1
+    $$$$$:   13-block  2
+call    4 never executed
+        -:   14:
+function _ZNK9FileError4whatEv called 0 returned 0% blocks executed 0%
+    #####:   15:    [[nodiscard]] const char *what() const noexcept override{
+    #####:   16:        return message.c_str();
+    %%%%%:   16-block  0
+call    0 never executed
+        -:   17:    }
+        -:   18:};
+        -:   19:
+        -:   20:class ArgumentError : public std::exception{
+        -:   21:private:
+        -:   22:    std::string message;
+        -:   23:public:
+        -:   24:    explicit ArgumentError(const std::string& msg)
+        -:   25:            : message("Argument Error: " + msg) {}
+        -:   26:
+        -:   27:    [[nodiscard]] const char* what() const noexcept override {
+        -:   28:        return message.c_str();
+        -:   29:    }
+        -:   30:};
+        -:   31:#endif //COMMANDLINETOOL_ERROR_H

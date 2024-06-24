@@ -1,0 +1,5 @@
+# ninja log v5
+0	642	7409164245000288	CMakeFiles/commandLineTool.dir/src/count.cpp.obj	9042c5f64428c5c5
+14	807	7409164246638896	CMakeFiles/commandLineTool.dir/src/stats.cpp.obj	9cc90e51bf42fc84
+5	895	7409164247508924	CMakeFiles/commandLineTool.dir/src/main.cpp.obj	a64417e9b6766c00
+895	1048	7409164249016268	commandLineTool.exe	2183f06714374a92
